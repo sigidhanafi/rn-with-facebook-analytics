@@ -9,8 +9,10 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
+import { AppEventsLogger } from 'react-native-fbsdk';
 
 export default class RNwithFBAnalytics extends Component {
   render() {
@@ -19,13 +21,14 @@ export default class RNwithFBAnalytics extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <TouchableOpacity
+          onPress={() => {
+            AppEventsLogger.logEvent('buttonHome', {'param': 'Click Event'})
+          }}
+          style={styles.button}
+        >
+          <Text style={styles.white}>Log Click Event</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -43,11 +46,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  button: {
+    backgroundColor: '#365899',
+    padding: 10,
+    margin: 10
   },
+  white: {
+    color: '#FFFFFF'
+  }
 });
 
 AppRegistry.registerComponent('RNwithFBAnalytics', () => RNwithFBAnalytics);
