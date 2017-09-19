@@ -1,0 +1,3 @@
+rootProject.name = 'RNwithFBAnalytics'
+
+include ':app'
