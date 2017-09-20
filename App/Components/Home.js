@@ -4,13 +4,25 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  ToastAndroid
 } from 'react-native';
-import { AppEventsLogger } from 'react-native-fbsdk';
+import { AppEventsLogger, AppEvents } from 'react-native-fbsdk';
+import { Actions } from 'react-native-router-flux'
 
-class App extends React.Component {
+class Home extends React.Component {
   constructor (props) {
     super(props)
+    AppEventsLogger.logEvent('home')
+  }
+
+  componentWillMount () {
+  }
+
+  componentDidMount () {
+  }
+
+  componentWillUnmount () {
   }
 
   render () {
@@ -28,6 +40,7 @@ class App extends React.Component {
           <TouchableOpacity
             onPress={() => {
               AppEventsLogger.logEvent('category', {'name': 'kaos'})
+              Actions.category()
             }}
             style={styles.button}
           >
@@ -36,6 +49,7 @@ class App extends React.Component {
           <TouchableOpacity
             onPress={() => {
               AppEventsLogger.logEvent('category', {'name': 'kemeja'})
+              Actions.category()
             }}
             style={styles.button}
           >
@@ -46,6 +60,7 @@ class App extends React.Component {
           <TouchableOpacity
             onPress={() => {
               AppEventsLogger.logEvent('category', {'name': 'celana panjang'})
+              Actions.category()
             }}
             style={styles.button}
           >
@@ -54,6 +69,7 @@ class App extends React.Component {
           <TouchableOpacity
             onPress={() => {
               AppEventsLogger.logEvent('category', {'name': 'celana pendek'})
+              Actions.category()
             }}
             style={styles.button}
           >
@@ -64,6 +80,7 @@ class App extends React.Component {
           <TouchableOpacity
             onPress={() => {
               AppEventsLogger.logEvent('category', {'name': 'asesoris'})
+              Actions.category()
             }}
             style={styles.button}
           >
@@ -72,6 +89,7 @@ class App extends React.Component {
           <TouchableOpacity
             onPress={() => {
               AppEventsLogger.logEvent('category', {'name': 'lainnya', 'promo': 'no'})
+              Actions.category()
             }}
             style={styles.button}
           >
@@ -116,4 +134,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App
+export default Home
