@@ -71,7 +71,7 @@ class App extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              AppEventsLogger.logEvent('category', {'name': 'lainnya'})
+              AppEventsLogger.logEvent('category', {'name': 'lainnya', 'promo': 'no'})
             }}
             style={styles.button}
           >
